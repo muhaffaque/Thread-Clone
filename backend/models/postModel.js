@@ -14,8 +14,10 @@ const postSchema = mongoose.Schema({
     type: String,
   },
   likes: {
-    type: Number,
-    default: 0,
+    //array of userid
+    type: [mongoose.Schema.Types.ObjectId],
+    ref: "User",
+    default: [],
   },
   replies: [
     {
@@ -37,7 +39,7 @@ const postSchema = mongoose.Schema({
     }
   ]
 },{
-    timestamp: true,
+  timestamps: true,
 });
 
 const Post = mongoose.model("Post", postSchema)
