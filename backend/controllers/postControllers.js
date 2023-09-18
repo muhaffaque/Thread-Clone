@@ -119,7 +119,7 @@ const replyToPost = async(req,res)=>{
 }
 
 const getFeedPost = async(req,res)=>{
-    try {
+    try {          
         const userId = req.user._id;
         const user = await User.findById(userId) 
         if(!user){
